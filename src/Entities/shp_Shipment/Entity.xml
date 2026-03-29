@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_shipment</Name>
+  <DisplayName>Shipment</DisplayName>
+  <PluralName>Shipments</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>UserOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_shipmentno</Name>
+      <DisplayName>Shipment No</DisplayName>
+      <Description>The unique shipment number</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>50</MaxLength>
+      <IsPrimaryName>true</IsPrimaryName>
+    </Attribute>
+    <Attribute>
+      <Name>shp_direction</Name>
+      <DisplayName>Direction</DisplayName>
+      <Description>The direction of shipment movement</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Import</Label>
+        </Option>
+        <Option value="2">
+          <Label>Export</Label>
+        </Option>
+        <Option value="3">
+          <Label>Both</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_status</Name>
+      <DisplayName>Status</DisplayName>
+      <Description>The current status of the shipment</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Booked</Label>
+        </Option>
+        <Option value="2">
+          <Label>In Transit</Label>
+        </Option>
+        <Option value="3">
+          <Label>Arrived</Label>
+        </Option>
+        <Option value="4">
+          <Label>Delivered</Label>
+        </Option>
+        <Option value="5">
+          <Label>Closed</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_cargotype</Name>
+      <DisplayName>Cargo Type</DisplayName>
+      <Description>The type of cargo in the shipment</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>FCL</Label>
+        </Option>
+        <Option value="2">
+          <Label>LCL</Label>
+        </Option>
+        <Option value="3">
+          <Label>Air</Label>
+        </Option>
+        <Option value="4">
+          <Label>Breakbulk</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_transportmode</Name>
+      <DisplayName>Transport Mode</DisplayName>
+      <Description>The mode of transport for the shipment</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Sea</Label>
+        </Option>
+        <Option value="2">
+          <Label>Air</Label>
+        </Option>
+        <Option value="3">
+          <Label>Road</Label>
+        </Option>
+        <Option value="4">
+          <Label>Rail</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_consoltype</Name>
+      <DisplayName>Consol Type</DisplayName>
+      <Description>The consolidation type of the shipment</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Direct</Label>
+        </Option>
+        <Option value="2">
+          <Label>Consol</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_region</Name>
+      <DisplayName>Region</DisplayName>
+      <Description>The region associated with the shipment</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Asia</Label>
+        </Option>
+        <Option value="2">
+          <Label>Europe</Label>
+        </Option>
+        <Option value="3">
+          <Label>Americas</Label>
+        </Option>
+        <Option value="4">
+          <Label>MiddleEast</Label>
+        </Option>
+        <Option value="5">
+          <Label>Africa</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_branchid</Name>
+      <DisplayName>Branch</DisplayName>
+      <Description>The branch responsible for the shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_branch</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_carrierid</Name>
+      <DisplayName>Carrier</DisplayName>
+      <Description>The carrier assigned to the shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_carrier</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_shipperid</Name>
+      <DisplayName>Shipper</DisplayName>
+      <Description>The shipper for the shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_shipper</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_consigneeid</Name>
+      <DisplayName>Consignee</DisplayName>
+      <Description>The consignee for the shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_consignee</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_csoid</Name>
+      <DisplayName>CSO Member</DisplayName>
+      <Description>The CSO member associated with the shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_csomember</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_carrierschac</Name>
+      <DisplayName>Carrier SCAC</DisplayName>
+      <Description>Standard Carrier Alpha Code</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>10</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_carrierbookingno</Name>
+      <DisplayName>Carrier Booking No</DisplayName>
+      <Description>Carrier booking reference number</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>50</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_pol</Name>
+      <DisplayName>Port of Loading</DisplayName>
+      <Description>Port of loading for the shipment</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_pod</Name>
+      <DisplayName>Port of Discharge</DisplayName>
+      <Description>Port of discharge for the shipment</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_finaldestination</Name>
+      <DisplayName>Final Destination</DisplayName>
+      <Description>Final destination of the shipment</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_vesselvoyage</Name>
+      <DisplayName>Vessel Voyage</DisplayName>
+      <Description>Vessel and voyage information</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hblno</Name>
+      <DisplayName>HBL No</DisplayName>
+      <Description>House Bill of Lading number</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>50</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_mblno</Name>
+      <DisplayName>MBL No</DisplayName>
+      <Description>Master Bill of Lading number</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>50</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_consolno</Name>
+      <DisplayName>Consol No</DisplayName>
+      <Description>Consolidation number</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>50</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_comments</Name>
+      <DisplayName>Comments</DisplayName>
+      <Description>Additional comments about the shipment</Description>
+      <Type>Memo</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>2000</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_etd</Name>
+      <DisplayName>Estimated Time of Departure</DisplayName>
+      <Description>Estimated departure date</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_eta</Name>
+      <DisplayName>Estimated Time of Arrival</DisplayName>
+      <Description>Estimated arrival date</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_receiveddate</Name>
+      <DisplayName>Received Date</DisplayName>
+      <Description>Date the shipment was received</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+  </Attributes>
+</Entity>

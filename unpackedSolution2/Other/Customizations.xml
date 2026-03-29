@@ -126,6 +126,212 @@
         </Attribute>
       </Attributes>
     </Entity>
+    <Entity Name="shp_shipment" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="UserOwned" IconSmallName="" DisplayCollectionName="Shipments" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_shipments" LogicalName="shp_shipment">
+      <LocalizedName language="1033">Shipment</LocalizedName>
+      <LocalizedCollectionName language="1033">Shipments</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_shipmentno" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Shipment No</LocalizedName>
+          <Description language="1033">The unique shipment number</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_direction" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Direction</LocalizedName>
+          <Description language="1033">The direction of shipment movement</Description>
+          <OptionSet Name="shp_direction">
+            <Option value="1">
+              <LocalizedName language="1033">Import</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">Export</LocalizedName>
+            </Option>
+            <Option value="3">
+              <LocalizedName language="1033">Both</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_status" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Status</LocalizedName>
+          <Description language="1033">The current status of the shipment</Description>
+          <OptionSet Name="shp_status">
+            <Option value="1">
+              <LocalizedName language="1033">Booked</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">In Transit</LocalizedName>
+            </Option>
+            <Option value="3">
+              <LocalizedName language="1033">Arrived</LocalizedName>
+            </Option>
+            <Option value="4">
+              <LocalizedName language="1033">Delivered</LocalizedName>
+            </Option>
+            <Option value="5">
+              <LocalizedName language="1033">Closed</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_cargotype" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Cargo Type</LocalizedName>
+          <Description language="1033">The type of cargo in the shipment</Description>
+          <OptionSet Name="shp_cargotype">
+            <Option value="1">
+              <LocalizedName language="1033">FCL</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">LCL</LocalizedName>
+            </Option>
+            <Option value="3">
+              <LocalizedName language="1033">Air</LocalizedName>
+            </Option>
+            <Option value="4">
+              <LocalizedName language="1033">Breakbulk</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_transportmode" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Transport Mode</LocalizedName>
+          <Description language="1033">The mode of transport for the shipment</Description>
+          <OptionSet Name="shp_transportmode">
+            <Option value="1">
+              <LocalizedName language="1033">Sea</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">Air</LocalizedName>
+            </Option>
+            <Option value="3">
+              <LocalizedName language="1033">Road</LocalizedName>
+            </Option>
+            <Option value="4">
+              <LocalizedName language="1033">Rail</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_consoltype" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Consol Type</LocalizedName>
+          <Description language="1033">The consolidation type of the shipment</Description>
+          <OptionSet Name="shp_consoltype">
+            <Option value="1">
+              <LocalizedName language="1033">Direct</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">Consol</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_region" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Region</LocalizedName>
+          <Description language="1033">The region associated with the shipment</Description>
+          <OptionSet Name="shp_region">
+            <Option value="1">
+              <LocalizedName language="1033">Asia</LocalizedName>
+            </Option>
+            <Option value="2">
+              <LocalizedName language="1033">Europe</LocalizedName>
+            </Option>
+            <Option value="3">
+              <LocalizedName language="1033">Americas</LocalizedName>
+            </Option>
+            <Option value="4">
+              <LocalizedName language="1033">MiddleEast</LocalizedName>
+            </Option>
+            <Option value="5">
+              <LocalizedName language="1033">Africa</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_branchid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Branch</LocalizedName>
+          <Description language="1033">The branch responsible for the shipment</Description>
+          <LookupDefaultValue>shp_branch</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_carrierid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Carrier</LocalizedName>
+          <Description language="1033">The carrier assigned to the shipment</Description>
+          <LookupDefaultValue>shp_carrier</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_shipperid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Shipper</LocalizedName>
+          <Description language="1033">The shipper for the shipment</Description>
+          <LookupDefaultValue>shp_shipper</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_consigneeid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Consignee</LocalizedName>
+          <Description language="1033">The consignee for the shipment</Description>
+          <LookupDefaultValue>shp_consignee</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_csoid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">CSO Member</LocalizedName>
+          <Description language="1033">The CSO member associated with the shipment</Description>
+          <LookupDefaultValue>shp_csomember</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_carrierschac" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Carrier SCAC</LocalizedName>
+          <Description language="1033">Standard Carrier Alpha Code</Description>
+          <MaxLength>10</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_carrierbookingno" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Carrier Booking No</LocalizedName>
+          <Description language="1033">Carrier booking reference number</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_pol" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Port of Loading</LocalizedName>
+          <Description language="1033">Port of loading for the shipment</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_pod" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Port of Discharge</LocalizedName>
+          <Description language="1033">Port of discharge for the shipment</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_finaldestination" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Final Destination</LocalizedName>
+          <Description language="1033">Final destination of the shipment</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_vesselvoyage" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Vessel Voyage</LocalizedName>
+          <Description language="1033">Vessel and voyage information</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_hblno" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">HBL No</LocalizedName>
+          <Description language="1033">House Bill of Lading number</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_mblno" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">MBL No</LocalizedName>
+          <Description language="1033">Master Bill of Lading number</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_consolno" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Consol No</LocalizedName>
+          <Description language="1033">Consolidation number</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_comments" ColumnNumber="0" AttributeType="Memo" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Comments</LocalizedName>
+          <Description language="1033">Additional comments about the shipment</Description>
+          <MaxLength>2000</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_etd" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Estimated Time of Departure</LocalizedName>
+          <Description language="1033">Estimated departure date</Description>
+          <Format>DateOnly</Format>
+        </Attribute>
+        <Attribute Name="shp_eta" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Estimated Time of Arrival</LocalizedName>
+          <Description language="1033">Estimated arrival date</Description>
+          <Format>DateOnly</Format>
+        </Attribute>
+        <Attribute Name="shp_receiveddate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Received Date</LocalizedName>
+          <Description language="1033">Date the shipment was received</Description>
+          <Format>DateOnly</Format>
+        </Attribute>
+      </Attributes>
+    </Entity>
   </Entities>
   <Roles />
   <Workflows />
