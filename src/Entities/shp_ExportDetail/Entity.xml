@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_exportdetail</Name>
+  <DisplayName>Export Detail</DisplayName>
+  <PluralName>Export Details</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>UserOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_exportdetailid</Name>
+      <DisplayName>Export Detail ID</DisplayName>
+      <Description>Unique identifier for export detail record</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <IsPrimaryName>true</IsPrimaryName>
+      <AutoNumber>true</AutoNumber>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_shipmentid</Name>
+      <DisplayName>Shipment</DisplayName>
+      <Description>Reference to the parent shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_shipment</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_customsfilingstatus</Name>
+      <DisplayName>Customs Filing Status</DisplayName>
+      <Description>Status of customs filing</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Filed</Label>
+        </Option>
+        <Option value="3">
+          <Label>Cleared</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_finalhblstatus</Name>
+      <DisplayName>Final HBL Status</DisplayName>
+      <Description>Status of final house bill of lading</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Released</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hbldraftstatus</Name>
+      <DisplayName>HBL Draft Status</DisplayName>
+      <Description>Status of HBL draft</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>In Progress</Label>
+        </Option>
+        <Option value="3">
+          <Label>Completed</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hbltype</Name>
+      <DisplayName>HBL Type</DisplayName>
+      <Description>Type of house bill of lading</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>OBL</Label>
+        </Option>
+        <Option value="2">
+          <Label>SeawayBill</Label>
+        </Option>
+        <Option value="3">
+          <Label>Express</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportmbltype</Name>
+      <DisplayName>Export MBL Type</DisplayName>
+      <Description>Type of master bill of lading for export</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>OBL</Label>
+        </Option>
+        <Option value="2">
+          <Label>SeawayBill</Label>
+        </Option>
+        <Option value="3">
+          <Label>Express</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_prealertstatus</Name>
+      <DisplayName>Pre Alert Status</DisplayName>
+      <Description>Pre-alert notification status</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Sent</Label>
+        </Option>
+        <Option value="3">
+          <Label>Accepted</Label>
+        </Option>
+        <Option value="4">
+          <Label>Rejected</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportsistatus</Name>
+      <DisplayName>Export SI Status</DisplayName>
+      <Description>Shipping instruction status for export</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Received</Label>
+        </Option>
+        <Option value="3">
+          <Label>Submitted</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportvgmstatus</Name>
+      <DisplayName>Export VGM Status</DisplayName>
+      <Description>Verified gross mass status for export</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Received</Label>
+        </Option>
+        <Option value="3">
+          <Label>Submitted</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hblamendoccurred</Name>
+      <DisplayName>HBL Amend Occurred</DisplayName>
+      <Description>Indicates if HBL amendments occurred</Description>
+      <Type>Boolean</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <DefaultValue>false</DefaultValue>
+    </Attribute>
+    <Attribute>
+      <Name>shp_atd</Name>
+      <DisplayName>ATD (Actual Time of Departure)</DisplayName>
+      <Description>Actual departure date</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_customsfilingdate</Name>
+      <DisplayName>Customs Filing Date</DisplayName>
+      <Description>Date customs filing was submitted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_finalhblreleasedate</Name>
+      <DisplayName>Final HBL Release Date</DisplayName>
+      <Description>Date final HBL was released</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_finalmblreleasedate</Name>
+      <DisplayName>Final MBL Release Date</DisplayName>
+      <Description>Date final MBL was released</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_prealertacceptancedate</Name>
+      <DisplayName>Pre Alert Acceptance Date</DisplayName>
+      <Description>Date pre-alert was accepted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_firsthbldraftsent</Name>
+      <DisplayName>First HBL Draft Sent</DisplayName>
+      <Description>Date and time first HBL draft was sent</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hblamendgatetime</Name>
+      <DisplayName>HBL Amend DateTime</DisplayName>
+      <Description>Date and time of HBL amendment</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_portcutoff</Name>
+      <DisplayName>Port Cutoff</DisplayName>
+      <Description>Port cutoff date and time</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_prealertsent</Name>
+      <DisplayName>Pre Alert Sent</DisplayName>
+      <Description>Date and time pre-alert was sent</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportsicutoff</Name>
+      <DisplayName>Export SI Cutoff</DisplayName>
+      <Description>Cutoff time for export shipping instructions</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportsireceived</Name>
+      <DisplayName>Export SI Received</DisplayName>
+      <Description>Date and time export SI was received</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportsisibmitted</Name>
+      <DisplayName>Export SI Submitted</DisplayName>
+      <Description>Date and time export SI was submitted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportvgmcutoff</Name>
+      <DisplayName>Export VGM Cutoff</DisplayName>
+      <Description>Cutoff time for export VGM</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportvgmreceived</Name>
+      <DisplayName>Export VGM Received</DisplayName>
+      <Description>Date and time export VGM was received</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_exportvgmsubmitted</Name>
+      <DisplayName>Export VGM Submitted</DisplayName>
+      <Description>Date and time export VGM was submitted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_hblamendments</Name>
+      <DisplayName>HBL Amendments</DisplayName>
+      <Description>Details of HBL amendments</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>500</MaxLength>
+    </Attribute>
+  </Attributes>
+</Entity>

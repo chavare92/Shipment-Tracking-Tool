@@ -332,6 +332,189 @@
         </Attribute>
       </Attributes>
     </Entity>
+    <Entity Name="shp_importdetail" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="UserOwned" IconSmallName="" DisplayCollectionName="Import Details" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_importdetails" LogicalName="shp_importdetail">
+      <LocalizedName language="1033">Import Detail</LocalizedName>
+      <LocalizedCollectionName language="1033">Import Details</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_importdetailid" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Import Detail ID</LocalizedName>
+          <Description language="1033">Unique identifier for import detail record</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_shipmentid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Shipment</LocalizedName>
+          <Description language="1033">Reference to the parent shipment</Description>
+          <LookupDefaultValue>shp_shipment</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_dostatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">DO Status</LocalizedName>
+          <Description language="1033">Delivery Order status</Description>
+          <OptionSet Name="shp_dostatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Released</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Collected</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_dpwarrivalnoticestatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">DPW Arrival Notice Status</LocalizedName>
+          <Description language="1033">DPW arrival notice status</Description>
+          <OptionSet Name="shp_dpwarrivalnoticestatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Received</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Actioned</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_emptycontainerreturnstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Empty Container Return Status</LocalizedName>
+          <Description language="1033">Status of empty container return</Description>
+          <OptionSet Name="shp_emptycontainerreturnstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Returned</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_importmbltype" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Import MBL Type</LocalizedName>
+          <Description language="1033">Type of master bill of lading for import</Description>
+          <OptionSet Name="shp_importmbltype">
+            <Option value="1"><LocalizedName language="1033">OBL</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">SeawayBill</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Express</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_importsistatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Import SI Status</LocalizedName>
+          <Description language="1033">Shipping instruction status for import</Description>
+          <OptionSet Name="shp_importsistatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Received</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Submitted</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_importvgmstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Import VGM Status</LocalizedName>
+          <Description language="1033">Verified gross mass status for import</Description>
+          <OptionSet Name="shp_importvgmstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Received</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Submitted</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_ata" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">ATA</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_carrierodoreleasdate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Carrier DO Release Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_dpwdoreleasdate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">DPW DO Release Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_emptyreturndate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Empty Return Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_etafinaldest" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">ETA Final Dest</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_lfdemptyreturn" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">LFD Empty Return</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_lfdpickup" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">LFD PickUp</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_pickedupdate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Picked Up Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_carrierarrivalnnoticedate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Carrier Arrival Notice Date</LocalizedName></Attribute>
+        <Attribute Name="shp_dpwarrivalnoticedatetime" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">DPW Arrival Notice DateTime</LocalizedName></Attribute>
+        <Attribute Name="shp_importsicutoff" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import SI Cutoff</LocalizedName></Attribute>
+        <Attribute Name="shp_importisireceived" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import SI Received</LocalizedName></Attribute>
+        <Attribute Name="shp_importsissubmitted" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import SI Submitted</LocalizedName></Attribute>
+        <Attribute Name="shp_importvgmcutoff" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import VGM Cutoff</LocalizedName></Attribute>
+        <Attribute Name="shp_importvgmreceived" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import VGM Received</LocalizedName></Attribute>
+        <Attribute Name="shp_importvgmsubmitted" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import VGM Submitted</LocalizedName></Attribute>
+        <Attribute Name="shp_importcomments" ColumnNumber="0" AttributeType="Memo" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Import Comments</LocalizedName><MaxLength>2000</MaxLength></Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_exportdetail" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="UserOwned" IconSmallName="" DisplayCollectionName="Export Details" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_exportdetails" LogicalName="shp_exportdetail">
+      <LocalizedName language="1033">Export Detail</LocalizedName>
+      <LocalizedCollectionName language="1033">Export Details</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_exportdetailid" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Export Detail ID</LocalizedName>
+          <Description language="1033">Unique identifier for export detail record</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_shipmentid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Shipment</LocalizedName>
+          <Description language="1033">Reference to the parent shipment</Description>
+          <LookupDefaultValue>shp_shipment</LookupDefaultValue>
+        </Attribute>
+        <Attribute Name="shp_customsfilingstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Customs Filing Status</LocalizedName>
+          <OptionSet Name="shp_customsfilingstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Filed</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Cleared</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_finalhblstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Final HBL Status</LocalizedName>
+          <OptionSet Name="shp_finalhblstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Released</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_hbldraftstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">HBL Draft Status</LocalizedName>
+          <OptionSet Name="shp_hbldraftstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">In Progress</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Completed</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_hbltype" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">HBL Type</LocalizedName>
+          <OptionSet Name="shp_hbltype">
+            <Option value="1"><LocalizedName language="1033">OBL</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">SeawayBill</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Express</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_exportmbltype" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Export MBL Type</LocalizedName>
+          <OptionSet Name="shp_exportmbltype">
+            <Option value="1"><LocalizedName language="1033">OBL</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">SeawayBill</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Express</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_prealertstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Pre Alert Status</LocalizedName>
+          <OptionSet Name="shp_prealertstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Sent</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Accepted</LocalizedName></Option>
+            <Option value="4"><LocalizedName language="1033">Rejected</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_exportsistatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Export SI Status</LocalizedName>
+          <OptionSet Name="shp_exportsistatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Received</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Submitted</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_exportvgmstatus" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Export VGM Status</LocalizedName>
+          <OptionSet Name="shp_exportvgmstatus">
+            <Option value="1"><LocalizedName language="1033">Pending</LocalizedName></Option>
+            <Option value="2"><LocalizedName language="1033">Received</LocalizedName></Option>
+            <Option value="3"><LocalizedName language="1033">Submitted</LocalizedName></Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_hblamendoccurred" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">HBL Amend Occurred</LocalizedName><DefaultValue>false</DefaultValue></Attribute>
+        <Attribute Name="shp_atd" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">ATD</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_customsfilingdate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Customs Filing Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_finalhblreleasedate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Final HBL Release Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_finalmblreleasedate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Final MBL Release Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_prealertacceptancedate" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Pre Alert Acceptance Date</LocalizedName><Format>DateOnly</Format></Attribute>
+        <Attribute Name="shp_firsthbldraftsent" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">First HBL Draft Sent</LocalizedName></Attribute>
+        <Attribute Name="shp_hblamendgatetime" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">HBL Amend DateTime</LocalizedName></Attribute>
+        <Attribute Name="shp_portcutoff" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Port Cutoff</LocalizedName></Attribute>
+        <Attribute Name="shp_prealertsent" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Pre Alert Sent</LocalizedName></Attribute>
+        <Attribute Name="shp_exportsicutoff" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export SI Cutoff</LocalizedName></Attribute>
+        <Attribute Name="shp_exportsireceived" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export SI Received</LocalizedName></Attribute>
+        <Attribute Name="shp_exportsisibmitted" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export SI Submitted</LocalizedName></Attribute>
+        <Attribute Name="shp_exportvgmcutoff" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export VGM Cutoff</LocalizedName></Attribute>
+        <Attribute Name="shp_exportvgmreceived" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export VGM Received</LocalizedName></Attribute>
+        <Attribute Name="shp_exportvgmsubmitted" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">Export VGM Submitted</LocalizedName></Attribute>
+        <Attribute Name="shp_hblamendments" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None"><LocalizedName language="1033">HBL Amendments</LocalizedName><MaxLength>500</MaxLength></Attribute>
+      </Attributes>
+    </Entity>
   </Entities>
   <Roles />
   <Workflows />

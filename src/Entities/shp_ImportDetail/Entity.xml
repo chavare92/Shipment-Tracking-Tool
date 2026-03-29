@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_importdetail</Name>
+  <DisplayName>Import Detail</DisplayName>
+  <PluralName>Import Details</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>UserOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_importdetailid</Name>
+      <DisplayName>Import Detail ID</DisplayName>
+      <Description>Unique identifier for import detail record</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <IsPrimaryName>true</IsPrimaryName>
+      <AutoNumber>true</AutoNumber>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_shipmentid</Name>
+      <DisplayName>Shipment</DisplayName>
+      <Description>Reference to the parent shipment</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_shipment</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+    <Attribute>
+      <Name>shp_dostatus</Name>
+      <DisplayName>DO Status</DisplayName>
+      <Description>Delivery Order status</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Released</Label>
+        </Option>
+        <Option value="3">
+          <Label>Collected</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_dpwarrivalnoticestatus</Name>
+      <DisplayName>DPW Arrival Notice Status</DisplayName>
+      <Description>DPW arrival notice status</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Received</Label>
+        </Option>
+        <Option value="3">
+          <Label>Actioned</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_emptycontainerreturnstatus</Name>
+      <DisplayName>Empty Container Return Status</DisplayName>
+      <Description>Status of empty container return</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Returned</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importmbltype</Name>
+      <DisplayName>Import MBL Type</DisplayName>
+      <Description>Type of master bill of lading for import</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>OBL</Label>
+        </Option>
+        <Option value="2">
+          <Label>SeawayBill</Label>
+        </Option>
+        <Option value="3">
+          <Label>Express</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importsistatus</Name>
+      <DisplayName>Import SI Status</DisplayName>
+      <Description>Shipping instruction status for import</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Received</Label>
+        </Option>
+        <Option value="3">
+          <Label>Submitted</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importvgmstatus</Name>
+      <DisplayName>Import VGM Status</DisplayName>
+      <Description>Verified gross mass status for import</Description>
+      <Type>Picklist</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <OptionSet>
+        <Option value="1">
+          <Label>Pending</Label>
+        </Option>
+        <Option value="2">
+          <Label>Received</Label>
+        </Option>
+        <Option value="3">
+          <Label>Submitted</Label>
+        </Option>
+      </OptionSet>
+    </Attribute>
+    <Attribute>
+      <Name>shp_ata</Name>
+      <DisplayName>ATA (Actual Time of Arrival)</DisplayName>
+      <Description>Actual arrival date</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_carrierodoreleasdate</Name>
+      <DisplayName>Carrier DO Release Date</DisplayName>
+      <Description>Date carrier released delivery order</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_dpwdoreleasdate</Name>
+      <DisplayName>DPW DO Release Date</DisplayName>
+      <Description>Date DPW released delivery order</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_emptyreturndate</Name>
+      <DisplayName>Empty Return Date</DisplayName>
+      <Description>Date empty container was returned</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_etafinaldest</Name>
+      <DisplayName>ETA Final Destination</DisplayName>
+      <Description>Estimated arrival at final destination</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_lfdemptyreturn</Name>
+      <DisplayName>LFD Empty Return</DisplayName>
+      <Description>Last free day for empty return</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_lfdpickup</Name>
+      <DisplayName>LFD PickUp</DisplayName>
+      <Description>Last free day for pick up</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_pickedupdate</Name>
+      <DisplayName>Picked Up Date</DisplayName>
+      <Description>Date cargo was picked up</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <Format>DateOnly</Format>
+    </Attribute>
+    <Attribute>
+      <Name>shp_carrierarrivalnnoticedate</Name>
+      <DisplayName>Carrier Arrival Notice Date</DisplayName>
+      <Description>Date carrier sent arrival notice</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_dpwarrivalnoticedatetime</Name>
+      <DisplayName>DPW Arrival Notice DateTime</DisplayName>
+      <Description>Date and time DPW gave arrival notice</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importsicutoff</Name>
+      <DisplayName>Import SI Cutoff</DisplayName>
+      <Description>Cutoff time for import shipping instructions</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importisireceived</Name>
+      <DisplayName>Import SI Received</DisplayName>
+      <Description>Date and time import SI was received</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importsissubmitted</Name>
+      <DisplayName>Import SI Submitted</DisplayName>
+      <Description>Date and time import SI was submitted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importvgmcutoff</Name>
+      <DisplayName>Import VGM Cutoff</DisplayName>
+      <Description>Cutoff time for import VGM</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importvgmreceived</Name>
+      <DisplayName>Import VGM Received</DisplayName>
+      <Description>Date and time import VGM was received</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importvgmsubmitted</Name>
+      <DisplayName>Import VGM Submitted</DisplayName>
+      <Description>Date and time import VGM was submitted</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_importcomments</Name>
+      <DisplayName>Import Comments</DisplayName>
+      <Description>Additional comments for import shipment</Description>
+      <Type>Memo</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>2000</MaxLength>
+    </Attribute>
+  </Attributes>
+</Entity>
