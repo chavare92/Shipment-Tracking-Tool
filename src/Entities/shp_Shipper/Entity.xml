@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_shipper</Name>
+  <DisplayName>Shipper</DisplayName>
+  <PluralName>Shippers</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>OrganizationOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_shippername</Name>
+      <DisplayName>Shipper Name</DisplayName>
+      <Description>The name of the shipper</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>100</MaxLength>
+      <IsPrimaryName>true</IsPrimaryName>
+    </Attribute>
+    <Attribute>
+      <Name>shp_country</Name>
+      <DisplayName>Country</DisplayName>
+      <Description>The country where the shipper is located</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_contactemail</Name>
+      <DisplayName>Contact Email</DisplayName>
+      <Description>Email address for shipper contact</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>200</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_contactphone</Name>
+      <DisplayName>Contact Phone</DisplayName>
+      <Description>Phone number for shipper contact</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>30</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_isactive</Name>
+      <DisplayName>Is Active</DisplayName>
+      <Description>Indicates whether the shipper is active</Description>
+      <Type>Boolean</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <DefaultValue>true</DefaultValue>
+    </Attribute>
+  </Attributes>
+</Entity>

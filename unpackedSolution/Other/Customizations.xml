@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26024.170" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26031.00175">
+  <Entities>
+    <Entity Name="shp_branch" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="Branches" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_branches" LogicalName="shp_branch">
+      <LocalizedName language="1033">Branch</LocalizedName>
+      <LocalizedCollectionName language="1033">Branches</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_branchname" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Branch Name</LocalizedName>
+          <Description language="1033">The name of the branch</Description>
+          <Picklist>
+            <PicklistOption value="0">
+              <Label language="1033" />
+            </PicklistOption>
+          </Picklist>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_region" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Region</LocalizedName>
+          <Description language="1033">The region where the branch is located</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_country" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Country</LocalizedName>
+          <Description language="1033">The country where the branch is located</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_timezone" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Time Zone</LocalizedName>
+          <Description language="1033">The time zone of the branch</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the branch is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_carrier" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="Carriers" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_carriers" LogicalName="shp_carrier">
+      <LocalizedName language="1033">Carrier</LocalizedName>
+      <LocalizedCollectionName language="1033">Carriers</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_carriername" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Carrier Name</LocalizedName>
+          <Description language="1033">The name of the carrier</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_scaccode" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">SCAC Code</LocalizedName>
+          <Description language="1033">Standard Carrier Alpha Code</Description>
+          <MaxLength>10</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_country" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Country</LocalizedName>
+          <Description language="1033">The country where the carrier operates</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_contactemail" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Contact Email</LocalizedName>
+          <Description language="1033">Email address for carrier contact</Description>
+          <MaxLength>200</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the carrier is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_shipper" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="Shippers" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_shippers" LogicalName="shp_shipper">
+      <LocalizedName language="1033">Shipper</LocalizedName>
+      <LocalizedCollectionName language="1033">Shippers</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_shippername" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Shipper Name</LocalizedName>
+          <Description language="1033">The name of the shipper</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_country" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Country</LocalizedName>
+          <Description language="1033">The country where the shipper is located</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_contactemail" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Contact Email</LocalizedName>
+          <Description language="1033">Email address for shipper contact</Description>
+          <MaxLength>200</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_contactphone" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Contact Phone</LocalizedName>
+          <Description language="1033">Phone number for shipper contact</Description>
+          <MaxLength>30</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the shipper is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_consignee" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="Consignees" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_consignees" LogicalName="shp_consignee">
+      <LocalizedName language="1033">Consignee</LocalizedName>
+      <LocalizedCollectionName language="1033">Consignees</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_consigneename" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Consignee Name</LocalizedName>
+          <Description language="1033">The name of the consignee</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_country" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Country</LocalizedName>
+          <Description language="1033">The country where the consignee is located</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_taxid" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Tax ID</LocalizedName>
+          <Description language="1033">The tax identification number of the consignee</Description>
+          <MaxLength>50</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_contactemail" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Contact Email</LocalizedName>
+          <Description language="1033">Email address for consignee contact</Description>
+          <MaxLength>200</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the consignee is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+  </Entities>
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <CanvasApps />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="new_sharedoffice365_e5780">
+      <connectionreferencedisplayname>Office 365 Outlook</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedpowerbi_bd942">
+      <connectionreferencedisplayname>Power BI</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_powerbi</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="pub_sharedsharepointonline_48ae0">
+      <connectionreferencedisplayname>SharePointPulseTrack</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>
