@@ -1,0 +1,15 @@
+<environmentvariabledefinition schemaname="pub_STTBranchtoGeoMap">
+  <apiid>/providers/microsoft.powerapps/apis/shared_sharepointonline</apiid>
+  <displayname default="STT Branch-to-Geo Map">
+    <label description="STT Branch-to-Geo Map" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.14</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <parameterkey>table</parameterkey>
+  <parentdefinitionid>
+    <schemaname>new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076</schemaname>
+  </parentdefinitionid>
+  <secretstore>0</secretstore>
+  <type>100000004</type>
+</environmentvariabledefinition>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26024.170" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26031.00175">
+  <Entities>
+    <Entity Name="shp_user" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="UserOwned" IconSmallName="" DisplayCollectionName="Users" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_users" LogicalName="shp_user">
+      <LocalizedName language="1033">User</LocalizedName>
+      <LocalizedCollectionName language="1033">Users</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_fullname" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Full Name</LocalizedName>
+          <Description language="1033">The full name of the user</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_email" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Email</LocalizedName>
+          <Description language="1033">Email address of the user</Description>
+          <MaxLength>200</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_role" ColumnNumber="0" AttributeType="Picklist" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Role</LocalizedName>
+          <Description language="1033">The role assigned to the user</Description>
+          <OptionSet Name="shp_role">
+            <Option value="100000000">
+              <LocalizedName language="1033">Admin</LocalizedName>
+            </Option>
+            <Option value="100000001">
+              <LocalizedName language="1033">User</LocalizedName>
+            </Option>
+            <Option value="100000002">
+              <LocalizedName language="1033">ReadOnly</LocalizedName>
+            </Option>
+          </OptionSet>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the user is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+        <Attribute Name="shp_lastlogin" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Last Login</LocalizedName>
+          <Description language="1033">The date and time of the user's last login</Description>
+        </Attribute>
+        <Attribute Name="shp_branchid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Branch</LocalizedName>
+          <Description language="1033">The branch the user is assigned to</Description>
+          <LookupDefaultValue>shp_branch</LookupDefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_userauth" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="User Auths" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_userauths" LogicalName="shp_userauth">
+      <LocalizedName language="1033">User Auth</LocalizedName>
+      <LocalizedCollectionName language="1033">User Auths</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_authid" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Auth ID</LocalizedName>
+          <Description language="1033">Unique identifier for user authentication record</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_passwordhash" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Password Hash</LocalizedName>
+          <Description language="1033">Hashed password for the user</Description>
+          <MaxLength>300</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_salt" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Salt</LocalizedName>
+          <Description language="1033">Salt used for password hashing</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_failedattempts" ColumnNumber="0" AttributeType="Integer" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Failed Attempts</LocalizedName>
+          <Description language="1033">Number of failed login attempts</Description>
+          <DefaultValue>0</DefaultValue>
+        </Attribute>
+        <Attribute Name="shp_lockeduntil" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Locked Until</LocalizedName>
+          <Description language="1033">Date and time until which the account is locked</Description>
+        </Attribute>
+        <Attribute Name="shp_sessiontoken" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Session Token</LocalizedName>
+          <Description language="1033">Active session token for the user</Description>
+          <MaxLength>300</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_tokenexpiry" ColumnNumber="0" AttributeType="DateTime" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Token Expiry</LocalizedName>
+          <Description language="1033">Date and time when the session token expires</Description>
+        </Attribute>
+        <Attribute Name="shp_userid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">User</LocalizedName>
+          <Description language="1033">Reference to the associated user record</Description>
+          <LookupDefaultValue>shp_user</LookupDefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+    <Entity Name="shp_csomember" ObjectTypeCode="0" IsIntersect="false" IsActivity="false" IsActivityParty="false" IsRenameable="true" IsValidForQueue="true" IsConnectionsEnabled="false" IconVectorName="" OwnershipTypeMask="OrganizationOwned" IconSmallName="" DisplayCollectionName="CSO Members" DataProviderId="" IsOfflineInMobileClient="false" IntroducedVersion="1.0.0.0" IsInteractionCentricEnabled="false" IsKnowledgeManagementEnabled="false" SyncToExternalSearchIndex="false" IsOneNoteIntegrationEnabled="false" IsOptimizedForLookup="false" ChangeTrackingEnabled="false" IsLogicalEntity="false" ExternalName="" ExternalCollectionName="" EntitySetName="shp_csomembers" LogicalName="shp_csomember">
+      <LocalizedName language="1033">CSO Member</LocalizedName>
+      <LocalizedCollectionName language="1033">CSO Members</LocalizedCollectionName>
+      <Attributes>
+        <Attribute Name="shp_fullname" ColumnNumber="0" AttributeType="String" IsPrimaryName="true" IsLogical="true" RequiredLevel="ApplicationRequired">
+          <LocalizedName language="1033">Full Name</LocalizedName>
+          <Description language="1033">The full name of the CSO member</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_email" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Email</LocalizedName>
+          <Description language="1033">Email address of the CSO member</Description>
+          <MaxLength>200</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_phone" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Phone</LocalizedName>
+          <Description language="1033">Phone number of the CSO member</Description>
+          <MaxLength>30</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_role" ColumnNumber="0" AttributeType="String" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Role</LocalizedName>
+          <Description language="1033">The role of the CSO member</Description>
+          <MaxLength>100</MaxLength>
+        </Attribute>
+        <Attribute Name="shp_isactive" ColumnNumber="0" AttributeType="Boolean" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Is Active</LocalizedName>
+          <Description language="1033">Indicates whether the CSO member is active</Description>
+          <DefaultValue>true</DefaultValue>
+        </Attribute>
+        <Attribute Name="shp_branchid" ColumnNumber="0" AttributeType="Lookup" IsPrimaryName="false" IsLogical="true" RequiredLevel="None">
+          <LocalizedName language="1033">Branch</LocalizedName>
+          <Description language="1033">The branch associated with the CSO member</Description>
+          <LookupDefaultValue>shp_branch</LookupDefaultValue>
+        </Attribute>
+      </Attributes>
+    </Entity>
+  </Entities>
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <CanvasApps />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="new_sharedoffice365_e5780">
+      <connectionreferencedisplayname>Office 365 Outlook</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedpowerbi_bd942">
+      <connectionreferencedisplayname>Power BI</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_powerbi</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="pub_sharedsharepointonline_48ae0">
+      <connectionreferencedisplayname>SharePointPulseTrack</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

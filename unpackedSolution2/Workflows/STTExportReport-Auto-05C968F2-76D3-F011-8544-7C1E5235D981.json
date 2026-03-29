@@ -1,0 +1,305 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerbi": {
+        "api": {
+          "name": "shared_powerbi"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedpowerbi_bd942"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_sharepointonline": {
+        "api": {
+          "name": "shared_sharepointonline"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "pub_sharedsharepointonline_48ae0"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_office365": {
+        "api": {
+          "name": "shared_office365"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_e5780"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "STT Site (new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076)": {
+          "defaultValue": "https://dpworld.sharepoint.com/sites/DataReportingPeXDevelopment",
+          "type": "String",
+          "metadata": {
+            "schemaName": "new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "type": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "India Standard Time",
+            "schedule": {
+              "hours": [
+                "9"
+              ],
+              "minutes": [
+                30
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "b4d1d52f-8d71-44c2-b393-8953e629714b"
+          }
+        }
+      },
+      "actions": {
+        "Run_a_query_against_a_dataset": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "groupid": "251251a8-59ad-4019-862f-bf8f296c7ed8",
+              "datasetid": "34802583-86e9-48b0-8311-3a84326a60ef",
+              "specification/query": "// DAX Query\nDEFINE\n\tVAR __DS0Core = \n\t\tSUMMARIZE(\n\t\t\t'Report',\n\t\t\t'Report'[Shipment ID],\n\t\t\t'Report'[Direction],\n\t\t\t'Report'[Transport Mode],\n\t\t\t'Report'[Branch],\n\t\t\t'Report'[Region],\n\t\t\t'Report'[Shipper Name],\n\t\t\t'Report'[Carrier Name],\n\t\t\t'Report'[Carrier SCAC Code],\n\t\t\t'Report'[Carrier Booking Number],\n\t\t\t'Report'[Consol Number],\n\t\t\t'Report'[MBL Number],\n\t\t\t'Report'[MBL Type],\n\t\t\t'Report'[HBL Number],\n\t\t\t'Report'[HBL Type],\n\t\t\t'Report'[Shipment Status],\n\t\t\t'Report'[Cargo Type],\n\t\t\t'Report'[Consignee Name],\n\t\t\t'Report'[Consolidation Type],\n\t\t\t'Report'[Vessel Name / Voyage Number],\n\t\t\t'Report'[TrackingID],\n\t\t\t'Report'[Carrier DO Release Date],\n\t\t\t'Report'[Carrier Arrival Notice Received Date],\n\t\t\t'Report'[ATA],\n\t\t\t'Report'[ATD],\n\t\t\t'Report'[Shipment Received Date],\n\t\t\t'Report'[SI Status],\n\t\t\t'Report'[VGM Status],\n\t\t\t'Report'[Pre-Alert Status],\n\t\t\t'Report'[POL (Port of Loading)],\n\t\t\t'Report'[POD (Port of Discharge)],\n\t\t\t'Report'[HBL Draft Status],\n\t\t\t'Report'[HBL Amendment Reason],\n\t\t\t'Report'[HBL Amendment Occurred?],\n\t\t\t'Report'[Final HBL Status],\n\t\t\t'Report'[Final Destination],\n\t\t\t'Report'[Empty Container Return Status],\n\t\t\t'Report'[DPW Arrival Notice Status],\n\t\t\t'Report'[DO Status],\n\t\t\t'Report'[Custom's Filing Status],\n\t\t\t'Report'[CSO Member],\n\t\t\t'Report'[Created By],\n\t\t\t'Report'[Comments],\n\t\t\t'Report'[Actioned By],\n\t\t\t'Report'[Actioned],\n\t\t\t'Report'[Custom's Filing Date],\n\t\t\t'Report'[DPW Arrival Notice Date and Time],\n\t\t\t'Report'[DPW DO Release Date],\n\t\t\t'Report'[Empty Container Return Date],\n\t\t\t'Report'[ETA],\n\t\t\t'Report'[ETA at Final Destination],\n\t\t\t'Report'[ETD],\n\t\t\t'Report'[Final HBL Release Date],\n\t\t\t'Report'[Final MBL Release Date],\n\t\t\t'Report'[First HBL Draft Sent Data & Time],\n\t\t\t'Report'[HBL Amendment Date & Time],\n\t\t\t'Report'[LFD to Empty Return],\n\t\t\t'Report'[LFD to Pick Up],\n\t\t\t'Report'[Picked Up Date],\n\t\t\t'Report'[Port Cut-off Date & Time],\n\t\t\t'Report'[Pre-Alert Acceptance Date],\n\t\t\t'Report'[Pre-Alert Sent Date & Time],\n\t\t\t'Report'[VGM Submitted Date & time],\n\t\t\t'Report'[VGM Received Date & Time],\n\t\t\t'Report'[VGM Cut-off Date & Time],\n\t\t\t'Report'[SI Cut-off Date & Time],\n\t\t\t'Report'[SI Instructions Received Data & Time],\n\t\t\t'Report'[SI Submitted Date & Time]\n\t\t)\n\n\tVAR __DS0PrimaryWindowed = \n\t\tTOPN(\n\t\t\t100000,\n\t\t\t__DS0Core,\n\t\t\t'Report'[Shipment ID],\n\t\t\t1,\n\t\t\t'Report'[Direction],\n\t\t\t1,\n\t\t\t'Report'[Transport Mode],\n\t\t\t1,\n\t\t\t'Report'[Branch],\n\t\t\t1,\n\t\t\t'Report'[Region],\n\t\t\t1,\n\t\t\t'Report'[Shipper Name],\n\t\t\t1,\n\t\t\t'Report'[Carrier Name],\n\t\t\t1,\n\t\t\t'Report'[Carrier SCAC Code],\n\t\t\t1,\n\t\t\t'Report'[Carrier Booking Number],\n\t\t\t1,\n\t\t\t'Report'[Consol Number],\n\t\t\t1,\n\t\t\t'Report'[MBL Number],\n\t\t\t1,\n\t\t\t'Report'[MBL Type],\n\t\t\t1,\n\t\t\t'Report'[HBL Number],\n\t\t\t1,\n\t\t\t'Report'[HBL Type],\n\t\t\t1,\n\t\t\t'Report'[Shipment Status],\n\t\t\t1,\n\t\t\t'Report'[Cargo Type],\n\t\t\t1,\n\t\t\t'Report'[Consignee Name],\n\t\t\t1,\n\t\t\t'Report'[Consolidation Type],\n\t\t\t1,\n\t\t\t'Report'[Vessel Name / Voyage Number],\n\t\t\t1,\n\t\t\t'Report'[TrackingID],\n\t\t\t1,\n\t\t\t'Report'[Carrier DO Release Date],\n\t\t\t1,\n\t\t\t'Report'[Carrier Arrival Notice Received Date],\n\t\t\t1,\n\t\t\t'Report'[ATA],\n\t\t\t1,\n\t\t\t'Report'[ATD],\n\t\t\t1,\n\t\t\t'Report'[Shipment Received Date],\n\t\t\t1,\n\t\t\t'Report'[SI Status],\n\t\t\t1,\n\t\t\t'Report'[VGM Status],\n\t\t\t1,\n\t\t\t'Report'[Pre-Alert Status],\n\t\t\t1,\n\t\t\t'Report'[POL (Port of Loading)],\n\t\t\t1,\n\t\t\t'Report'[POD (Port of Discharge)],\n\t\t\t1,\n\t\t\t'Report'[HBL Draft Status],\n\t\t\t1,\n\t\t\t'Report'[HBL Amendment Reason],\n\t\t\t1,\n\t\t\t'Report'[HBL Amendment Occurred?],\n\t\t\t1,\n\t\t\t'Report'[Final HBL Status],\n\t\t\t1,\n\t\t\t'Report'[Final Destination],\n\t\t\t1,\n\t\t\t'Report'[Empty Container Return Status],\n\t\t\t1,\n\t\t\t'Report'[DPW Arrival Notice Status],\n\t\t\t1,\n\t\t\t'Report'[DO Status],\n\t\t\t1,\n\t\t\t'Report'[Custom's Filing Status],\n\t\t\t1,\n\t\t\t'Report'[CSO Member],\n\t\t\t1,\n\t\t\t'Report'[Created By],\n\t\t\t1,\n\t\t\t'Report'[Comments],\n\t\t\t1,\n\t\t\t'Report'[Actioned By],\n\t\t\t1,\n\t\t\t'Report'[Actioned],\n\t\t\t1,\n\t\t\t'Report'[Custom's Filing Date],\n\t\t\t1,\n\t\t\t'Report'[DPW Arrival Notice Date and Time],\n\t\t\t1,\n\t\t\t'Report'[DPW DO Release Date],\n\t\t\t1,\n\t\t\t'Report'[Empty Container Return Date],\n\t\t\t1,\n\t\t\t'Report'[ETA],\n\t\t\t1,\n\t\t\t'Report'[ETA at Final Destination],\n\t\t\t1,\n\t\t\t'Report'[ETD],\n\t\t\t1,\n\t\t\t'Report'[Final HBL Release Date],\n\t\t\t1,\n\t\t\t'Report'[Final MBL Release Date],\n\t\t\t1,\n\t\t\t'Report'[First HBL Draft Sent Data & Time],\n\t\t\t1,\n\t\t\t'Report'[HBL Amendment Date & Time],\n\t\t\t1,\n\t\t\t'Report'[LFD to Empty Return],\n\t\t\t1,\n\t\t\t'Report'[LFD to Pick Up],\n\t\t\t1,\n\t\t\t'Report'[Picked Up Date],\n\t\t\t1,\n\t\t\t'Report'[Port Cut-off Date & Time],\n\t\t\t1,\n\t\t\t'Report'[Pre-Alert Acceptance Date],\n\t\t\t1,\n\t\t\t'Report'[Pre-Alert Sent Date & Time],\n\t\t\t1,\n\t\t\t'Report'[VGM Submitted Date & time],\n\t\t\t1,\n\t\t\t'Report'[VGM Received Date & Time],\n\t\t\t1,\n\t\t\t'Report'[VGM Cut-off Date & Time],\n\t\t\t1,\n\t\t\t'Report'[SI Cut-off Date & Time],\n\t\t\t1,\n\t\t\t'Report'[SI Instructions Received Data & Time],\n\t\t\t1,\n\t\t\t'Report'[SI Submitted Date & Time],\n\t\t\t1\n\t\t)\n\nEVALUATE\n\t__DS0PrimaryWindowed\n\nORDER BY\n\t'Report'[Shipment ID],\n\t'Report'[Direction],\n\t'Report'[Transport Mode],\n\t'Report'[Branch],\n\t'Report'[Region],\n\t'Report'[Shipper Name],\n\t'Report'[Carrier Name],\n\t'Report'[Carrier SCAC Code],\n\t'Report'[Carrier Booking Number],\n\t'Report'[Consol Number],\n\t'Report'[MBL Number],\n\t'Report'[MBL Type],\n\t'Report'[HBL Number],\n\t'Report'[HBL Type],\n\t'Report'[Shipment Status],\n\t'Report'[Cargo Type],\n\t'Report'[Consignee Name],\n\t'Report'[Consolidation Type],\n\t'Report'[Vessel Name / Voyage Number],\n\t'Report'[TrackingID],\n\t'Report'[Carrier DO Release Date],\n\t'Report'[Carrier Arrival Notice Received Date],\n\t'Report'[ATA],\n\t'Report'[ATD],\n\t'Report'[Shipment Received Date],\n\t'Report'[SI Status],\n\t'Report'[VGM Status],\n\t'Report'[Pre-Alert Status],\n\t'Report'[POL (Port of Loading)],\n\t'Report'[POD (Port of Discharge)],\n\t'Report'[HBL Draft Status],\n\t'Report'[HBL Amendment Reason],\n\t'Report'[HBL Amendment Occurred?],\n\t'Report'[Final HBL Status],\n\t'Report'[Final Destination],\n\t'Report'[Empty Container Return Status],\n\t'Report'[DPW Arrival Notice Status],\n\t'Report'[DO Status],\n\t'Report'[Custom's Filing Status],\n\t'Report'[CSO Member],\n\t'Report'[Created By],\n\t'Report'[Comments],\n\t'Report'[Actioned By],\n\t'Report'[Actioned],\n\t'Report'[Custom's Filing Date],\n\t'Report'[DPW Arrival Notice Date and Time],\n\t'Report'[DPW DO Release Date],\n\t'Report'[Empty Container Return Date],\n\t'Report'[ETA],\n\t'Report'[ETA at Final Destination],\n\t'Report'[ETD],\n\t'Report'[Final HBL Release Date],\n\t'Report'[Final MBL Release Date],\n\t'Report'[First HBL Draft Sent Data & Time],\n\t'Report'[HBL Amendment Date & Time],\n\t'Report'[LFD to Empty Return],\n\t'Report'[LFD to Pick Up],\n\t'Report'[Picked Up Date],\n\t'Report'[Port Cut-off Date & Time],\n\t'Report'[Pre-Alert Acceptance Date],\n\t'Report'[Pre-Alert Sent Date & Time],\n\t'Report'[VGM Submitted Date & time],\n\t'Report'[VGM Received Date & Time],\n\t'Report'[VGM Cut-off Date & Time],\n\t'Report'[SI Cut-off Date & Time],\n\t'Report'[SI Instructions Received Data & Time],\n\t'Report'[SI Submitted Date & Time]\n",
+              "specification/serializerSettings/includeNulls": false
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerbi",
+              "operationId": "ExecuteDatasetQuery",
+              "connectionName": "shared_powerbi"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "62e4af96-32a5-4c54-bbb8-8091c2215dac"
+          }
+        },
+        "Create_CSV_table": {
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Select')",
+            "format": "CSV"
+          },
+          "runAfter": {
+            "Select": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "658dd66c-da6b-4a82-92e9-19070b699298"
+          }
+        },
+        "Create_file": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "@parameters('STT Site (new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076)')",
+              "folderPath": "/Shared Documents/Shipment Tracking Tool/Reports",
+              "name": "STT Report_@{utcNow()}.csv",
+              "body": "@body('Create_CSV_table')"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "CreateFile",
+              "connectionName": "shared_sharepointonline"
+            }
+          },
+          "runAfter": {
+            "Create_CSV_table": [
+              "Succeeded"
+            ]
+          },
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "0916a5e7-930a-4afa-aec9-07031ab9c8fa"
+          }
+        },
+        "Create_sharing_link_for_a_file_or_folder": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "@parameters('STT Site (new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076)')",
+              "table": "5feecaa9-5bef-41be-9afc-ec10615ed64f",
+              "id": "@outputs('Create_file')?['body/ItemId']",
+              "permission/type": "view",
+              "permission/scope": "organization"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "CreateSharingLink",
+              "connectionName": "shared_sharepointonline"
+            }
+          },
+          "runAfter": {
+            "Create_file": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "810e8390-4ad0-4aea-8c85-65e74efbd9ae"
+          }
+        },
+        "Select": {
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Run_a_query_against_a_dataset')?['body/firstTableRows']",
+            "select": {
+              "Shipment ID": "@coalesce(item()?['Report[Shipment ID]'], '')",
+              "TrackingID": "@coalesce(item()?['Report[TrackingID]'], '')",
+              "Direction": "@coalesce(item()?['Report[Direction]'], '')",
+              "Transport Mode": "@coalesce(item()?['Report[Transport Mode]'], '')",
+              "Cargo Type": "@coalesce(item()?['Report[Cargo Type]'], '')",
+              "Consolidation Type": "@coalesce(item()?['Report[Consolidation Type]'], '')",
+              "Shipper Name": "@coalesce(item()?['Report[Shipper Name]'], '')",
+              "Consignee Name": "@coalesce(item()?['Report[Consignee Name]'], '')",
+              "Carrier Name": "@coalesce(item()?['Report[Carrier Name]'], '')",
+              "Carrier SCAC Code": "@coalesce(item()?['Report[Carrier SCAC Code]'], '')",
+              "Carrier Booking Number": "@coalesce(item()?['Report[Carrier Booking Number]'], '')",
+              "Consol Number": "@coalesce(item()?['Report[Consol Number]'], '')",
+              "MBL Number": "@coalesce(item()?['Report[MBL Number]'], '')",
+              "MBL Type": "@coalesce(item()?['Report[MBL Type]'], '')",
+              "HBL Number": "@coalesce(item()?['Report[HBL Number]'], '')",
+              "HBL Type": "@coalesce(item()?['Report[HBL Type]'], '')",
+              "Final HBL Status": "@coalesce(item()?['Report[Final HBL Status]'], '')",
+              "Final MBL Release Date": "@if(empty(item()?['Report[Final MBL Release Date]']), '', formatDateTime(item()?['Report[Final MBL Release Date]'], 'dd-MM-yyyy'))",
+              "Final HBL Release Date": "@if(empty(item()?['Report[Final HBL Release Date]']), '', formatDateTime(item()?['Report[Final HBL Release Date]'], 'dd-MM-yyyy'))",
+              "HBL Draft Status": "@coalesce(item()?['Report[HBL Draft Status]'], '')",
+              "HBL Amendment Reason": "@coalesce(item()?['Report[HBL Amendment Reason]'], '')",
+              "HBL Amendment Occurred?": "@coalesce(string(item()?['Report[HBL Amendment Occurred?]']), '')",
+              "First HBL Draft Sent Data & Time": "@if(empty(item()?['Report[First HBL Draft Sent Data & Time]']), '', formatDateTime(item()?['Report[First HBL Draft Sent Data & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "HBL Amendment Date & Time": "@if(empty(item()?['Report[HBL Amendment Date & Time]']), '', formatDateTime(item()?['Report[HBL Amendment Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "Vessel Name / Voyage Number": "@coalesce(item()?['Report[Vessel Name / Voyage Number]'], '')",
+              "ATA": "@if(empty(item()?['Report[ATA]']), '', formatDateTime(item()?['Report[ATA]'], 'dd-MM-yyyy'))",
+              "ATD": "@if(empty(item()?['Report[ATD]']), '', formatDateTime(item()?['Report[ATD]'], 'dd-MM-yyyy'))",
+              "ETA": "@if(empty(item()?['Report[ETA]']), '', formatDateTime(item()?['Report[ETA]'], 'dd-MM-yyyy'))",
+              "ETD": "@if(empty(item()?['Report[ETD]']), '', formatDateTime(item()?['Report[ETD]'], 'dd-MM-yyyy'))",
+              "ETA at Final Destination": "@if(empty(item()?['Report[ETA at Final Destination]']), '', formatDateTime(item()?['Report[ETA at Final Destination]'], 'dd-MM-yyyy'))",
+              "Picked Up Date": "@if(empty(item()?['Report[Picked Up Date]']), '', formatDateTime(item()?['Report[Picked Up Date]'], 'dd-MM-yyyy'))",
+              "Branch": "@coalesce(item()?['Report[Branch]'], '')",
+              "Region": "@coalesce(item()?['Report[Region]'], '')",
+              "Final Destination": "@coalesce(item()?['Report[Final Destination]'], '')",
+              "POL (Port of Loading)": "@coalesce(item()?['Report[POL (Port of Loading)]'], '')",
+              "POD (Port of Discharge)": "@coalesce(item()?['Report[POD (Port of Discharge)]'], '')",
+              "Shipment Status": "@coalesce(item()?['Report[Shipment Status]'], '')",
+              "SI Status": "@coalesce(item()?['Report[SI Status]'], '')",
+              "VGM Status": "@coalesce(item()?['Report[VGM Status]'], '')",
+              "Pre-Alert Status": "@coalesce(item()?['Report[Pre-Alert Status]'], '')",
+              "Empty Container Return Status": "@coalesce(item()?['Report[Empty Container Return Status]'], '')",
+              "DPW Arrival Notice Status": "@coalesce(item()?['Report[DPW Arrival Notice Status]'], '')",
+              "DO Status": "@coalesce(item()?['Report[DO Status]'], '')",
+              "Custom's Filing Status": "@coalesce(item()?['Report[Custom''s Filing Status]'], '')",
+              "CSO Member": "@coalesce(item()?['Report[CSO Member]'], '')",
+              "Created By": "@coalesce(item()?['Report[Created By]'], '')",
+              "Actioned By": "@coalesce(item()?['Report[Actioned By]'], '')",
+              "Actioned": "@coalesce(string(item()?['Report[Actioned]']), '')",
+              "Comments": "@coalesce(item()?['Report[Comments]'], '')",
+              "Carrier DO Release Date": "@if(empty(item()?['Report[Carrier DO Release Date]']), '', formatDateTime(item()?['Report[Carrier DO Release Date]'], 'dd-MM-yyyy'))",
+              "Carrier Arrival Notice Received Date": "@if(empty(item()?['Report[Carrier Arrival Notice Received Date]']), '', formatDateTime(item()?['Report[Carrier Arrival Notice Received Date]'], 'dd-MM-yyyy'))",
+              "DPW DO Release Date": "@if(empty(item()?['Report[DPW DO Release Date]']), '', formatDateTime(item()?['Report[DPW DO Release Date]'], 'dd-MM-yyyy'))",
+              "DPW Arrival Notice Date and Time": "@if(empty(item()?['Report[DPW Arrival Notice Date and Time]']), '', formatDateTime(item()?['Report[DPW Arrival Notice Date and Time]'], 'dd-MM-yyyy HH:mm'))",
+              "SI Cut-off Date & Time": "@if(empty(item()?['Report[SI Cut-off Date & Time]']), '', formatDateTime(item()?['Report[SI Cut-off Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "SI Instructions Received Data & Time": "@if(empty(item()?['Report[SI Instructions Received Data & Time]']), '', formatDateTime(item()?['Report[SI Instructions Received Data & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "SI Submitted Date & Time": "@if(empty(item()?['Report[SI Submitted Date & Time]']), '', formatDateTime(item()?['Report[SI Submitted Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "VGM Submitted Date & time": "@if(empty(item()?['Report[VGM Submitted Date & time]']), '', formatDateTime(item()?['Report[VGM Submitted Date & time]'], 'dd-MM-yyyy HH:mm'))",
+              "VGM Received Date & Time": "@if(empty(item()?['Report[VGM Received Date & Time]']), '', formatDateTime(item()?['Report[VGM Received Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "VGM Cut-off Date & Time": "@if(empty(item()?['Report[VGM Cut-off Date & Time]']), '', formatDateTime(item()?['Report[VGM Cut-off Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "Pre-Alert Acceptance Date": "@if(empty(item()?['Report[Pre-Alert Acceptance Date]']), '', formatDateTime(item()?['Report[Pre-Alert Acceptance Date]'], 'dd-MM-yyyy'))",
+              "Pre-Alert Sent Date & Time": "@if(empty(item()?['Report[Pre-Alert Sent Date & Time]']), '', formatDateTime(item()?['Report[Pre-Alert Sent Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "Port Cut-off Date & Time": "@if(empty(item()?['Report[Port Cut-off Date & Time]']), '', formatDateTime(item()?['Report[Port Cut-off Date & Time]'], 'dd-MM-yyyy HH:mm'))",
+              "Empty Container Return Date": "@if(empty(item()?['Report[Empty Container Return Date]']), '', formatDateTime(item()?['Report[Empty Container Return Date]'], 'dd-MM-yyyy'))",
+              "LFD to Empty Return": "@if(empty(item()?['Report[LFD to Empty Return]']), '', formatDateTime(item()?['Report[LFD to Empty Return]'], 'dd-MM-yyyy'))",
+              "LFD to Pick Up": "@if(empty(item()?['Report[LFD to Pick Up]']), '', formatDateTime(item()?['Report[LFD to Pick Up]'], 'dd-MM-yyyy'))",
+              "Shipment Received Date": "@if(empty(item()?['Report[Shipment Received Date]']), '', formatDateTime(item()?['Report[Shipment Received Date]'], 'dd-MM-yyyy'))",
+              "Custom's Filing Date": "@if(empty(item()?['Report[Custom''s Filing Date]']), '', formatDateTime(item()?['Report[Custom''s Filing Date]'], 'dd-MM-yyyy'))"
+            }
+          },
+          "runAfter": {
+            "Run_a_query_against_a_dataset": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4414cc58-f401-4fd1-8469-38ac3855b456"
+          }
+        },
+        "Get_file_content": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "@parameters('STT Site (new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076)')",
+              "id": "@outputs('Create_file')?['body/Id']",
+              "inferContentType": true
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "GetFileContent",
+              "connectionName": "shared_sharepointonline"
+            }
+          },
+          "runAfter": {
+            "Create_sharing_link_for_a_file_or_folder": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d82e755c-4b3e-4c78-850b-03df9c3fa0b5"
+          }
+        },
+        "Send_an_email_(V2)": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "emailMessage/To": "Reshma.Pawar@dpworld.com;Avinash.Amin@dpworld.com;Sudha.Vishwanathan@dpworld.com;Madhuri.Soni@dpworld.com;Santosh.Batheniya@dpworld.com;Pramod.Sonawane@dpworld.com;Prashant.Tirkey@dpworld.com;Ibrahim.Desai@dpworld.com;Rahul.Amkar@dpworld.com;Annam.Shaikh@dpworld.com;Ashish.Rane@dpworld.com;balakrishna.prabhu1@dpworld.com;Divya.Mayekar@dpworld.com;Neelam.Sawant@dpworld.com;Nishiket.Shah@dpworld.com;Rajesh.Pandey1@dpworld.com;Shahafahad.Sayyed@dpworld.com;Vishal.Mane@dpworld.com;Pramod.Sawant@dpworld.com",
+              "emailMessage/Subject": "STT Daily Report",
+              "emailMessage/Body": "<p class=\"editor-paragraph\">Hello Team,</p><br><p class=\"editor-paragraph\">Please find the attached STT Report.</p><br><p class=\"editor-paragraph\">Thanks &amp; Regards,</p><p class=\"editor-paragraph\">Karan Chavare</p>",
+              "emailMessage/Bcc": "Karan.Chavare@dpworld.com",
+              "emailMessage/Attachments": [
+                {
+                  "Name": "Report.csv",
+                  "ContentBytes": "@body('Get_file_content')"
+                }
+              ],
+              "emailMessage/Importance": "Normal"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+              "operationId": "SendEmailV2",
+              "connectionName": "shared_office365"
+            }
+          },
+          "runAfter": {
+            "Get_file_content": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ef8b5669-cf70-4b0e-a50f-a69082b2d294"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

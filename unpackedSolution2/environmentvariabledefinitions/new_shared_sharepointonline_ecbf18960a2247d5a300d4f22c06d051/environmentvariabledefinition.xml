@@ -1,0 +1,15 @@
+<environmentvariabledefinition schemaname="new_shared_sharepointonline_ecbf18960a2247d5a300d4f22c06d051">
+  <apiid>/providers/microsoft.powerapps/apis/shared_sharepointonline</apiid>
+  <displayname default="STT Shipment Status Datastore">
+    <label description="STT Shipment Status Datastore" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <parameterkey>table</parameterkey>
+  <parentdefinitionid>
+    <schemaname>new_shared_sharepointonline_c8ff5291cda04f9ab92b95e02edbe076</schemaname>
+  </parentdefinitionid>
+  <secretstore>0</secretstore>
+  <type>100000004</type>
+</environmentvariabledefinition>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_csomember</Name>
+  <DisplayName>CSO Member</DisplayName>
+  <PluralName>CSO Members</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>OrganizationOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_fullname</Name>
+      <DisplayName>Full Name</DisplayName>
+      <Description>The full name of the CSO member</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>100</MaxLength>
+      <IsPrimaryName>true</IsPrimaryName>
+    </Attribute>
+    <Attribute>
+      <Name>shp_email</Name>
+      <DisplayName>Email</DisplayName>
+      <Description>Email address of the CSO member</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>200</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_phone</Name>
+      <DisplayName>Phone</DisplayName>
+      <Description>Phone number of the CSO member</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>30</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_role</Name>
+      <DisplayName>Role</DisplayName>
+      <Description>The role of the CSO member</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_isactive</Name>
+      <DisplayName>Is Active</DisplayName>
+      <Description>Indicates whether the CSO member is active</Description>
+      <Type>Boolean</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <DefaultValue>true</DefaultValue>
+    </Attribute>
+    <Attribute>
+      <Name>shp_branchid</Name>
+      <DisplayName>Branch</DisplayName>
+      <Description>The branch associated with the CSO member</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_branch</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+  </Attributes>
+</Entity>

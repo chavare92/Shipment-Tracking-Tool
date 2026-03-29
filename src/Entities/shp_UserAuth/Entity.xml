@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns="http://schemas.microsoft.com/xrm/2011/metadata">
+  <Name>shp_userauth</Name>
+  <DisplayName>User Auth</DisplayName>
+  <PluralName>User Auths</PluralName>
+  <Description></Description>
+  <HasActivities>false</HasActivities>
+  <IsActivity>false</IsActivity>
+  <OwnershipType>OrganizationOwned</OwnershipType>
+  <Attributes>
+    <Attribute>
+      <Name>shp_authid</Name>
+      <DisplayName>Auth ID</DisplayName>
+      <Description>Unique identifier for user authentication record</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>100</MaxLength>
+      <IsPrimaryName>true</IsPrimaryName>
+    </Attribute>
+    <Attribute>
+      <Name>shp_passwordhash</Name>
+      <DisplayName>Password Hash</DisplayName>
+      <Description>Hashed password for the user</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>300</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_salt</Name>
+      <DisplayName>Salt</DisplayName>
+      <Description>Salt used for password hashing</Description>
+      <Type>String</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <MaxLength>100</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_failedattempts</Name>
+      <DisplayName>Failed Attempts</DisplayName>
+      <Description>Number of failed login attempts</Description>
+      <Type>Integer</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <DefaultValue>0</DefaultValue>
+      <MinValue>0</MinValue>
+    </Attribute>
+    <Attribute>
+      <Name>shp_lockeduntil</Name>
+      <DisplayName>Locked Until</DisplayName>
+      <Description>Date and time until which the account is locked</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_sessiontoken</Name>
+      <DisplayName>Session Token</DisplayName>
+      <Description>Active session token for the user</Description>
+      <Type>String</Type>
+      <RequiredLevel>None</RequiredLevel>
+      <MaxLength>300</MaxLength>
+    </Attribute>
+    <Attribute>
+      <Name>shp_tokenexpiry</Name>
+      <DisplayName>Token Expiry</DisplayName>
+      <Description>Date and time when the session token expires</Description>
+      <Type>DateTime</Type>
+      <RequiredLevel>None</RequiredLevel>
+    </Attribute>
+    <Attribute>
+      <Name>shp_userid</Name>
+      <DisplayName>User</DisplayName>
+      <Description>Reference to the associated user record</Description>
+      <Type>Lookup</Type>
+      <RequiredLevel>ApplicationRequired</RequiredLevel>
+      <LookupTargets>
+        <LookupTarget>shp_user</LookupTarget>
+      </LookupTargets>
+    </Attribute>
+  </Attributes>
+</Entity>
